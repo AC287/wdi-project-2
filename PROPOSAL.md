@@ -17,6 +17,7 @@ The game will be have additional features:
  * http://www.freescrabbledictionary.com/api/
  * This API will return xml format.
  * User cannot enter word that does not exist.
+
 ---
 
 ### Proposal#2: Grading Book
