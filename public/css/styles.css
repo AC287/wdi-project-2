@@ -5,6 +5,23 @@
 .container {
   text-align: center;
 }
+.formcontainer {
+  text-align: center;
+  width: 500px;
+  clear: both;
+}
+.formlogin {
+  width: 100%;
+  clear: both;
+  padding: 5px;
+  font-size: 30px;
+}
+.formnewuser {
+  width: 100%;
+  clear: both;
+  padding: 5px;
+  font-size: 30px;
+}
 .newuser {
   display: inline-block;
   padding: 10px;
@@ -12,4 +29,7 @@
 .login {
   display: inline-block;
   padding: 10px;
+}
+input {
+  font-size: 14pt;
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Log In</title>
+  </head>
+  <body>
+    <h1>User login</h1>
+    <div class="formcontainer">
+      <form action="/users/login" method="post" class="formlogin">
+        <div>
+          <h3>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" style="font-size: 14pt">
+          </h3>
+        </div>
+        <div>
+          <h3>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" style="font-size: 14pt">
+          </h3>
+        </div>
+        <input type="submit" value="Submit">
+      </form> <br>
+      <form action="/" method="get">
+        <input type="submit" name="back" value="Back">
+      </form>
+    </div>
+  </body>
+</html>
