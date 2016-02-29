@@ -25,7 +25,13 @@ users.post('/home', db.loginUser, function(req,res){
   req.session.user = res.rows;
   // res.send('WELCOME ' + res.rows.name);
   req.session.save(function(){
-    res.render('home', {displayUser: res.rows});
+    console.log(res.rows);
+    if (res.rows.role===2){
+      res.render('thome', {displayUser: res.rows})
+    }
+    else {
+      res.render('shome', {displayUser: res.rows});
+    }
   });
 });
 
