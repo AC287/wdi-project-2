@@ -49,6 +49,7 @@ function createUser(req, res, next) {
     //Assign role:
     var role;
     var roleClass = req.body.class_code;
+    roleClass = roleClass.toLowerCase();
     // console.log(roleClass);
     if(roleClass[roleClass.length-2]==='p' && roleClass[roleClass.length-1]==='t'){
       role = 2; // set as teacher
@@ -77,5 +78,25 @@ function createUser(req, res, next) {
   };
 };
 
+function studentData(req, res, next) {
+  pg.connect(config, function(err, client, done) {
+    if(err) {
+      done()
+      console.log(err)
+      return res.status(500).json({success: false, data: err})
+    };
+    client.query("SELECT * FROM users WHERE role='3' ORDER BY name;", function(err, result){
+      done();
+      if (err){
+        return console.error('Error running query',err);
+      }
+      res.data = result.rows;
+      console.log(res.data)
+      next();
+    });
+  });
+};
+
 module.exports.createUser = createUser;
 module.exports.loginUser = loginUser;
+module.exports.studentData = studentData;

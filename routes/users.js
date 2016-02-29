@@ -26,7 +26,7 @@ users.post('/home', db.loginUser, function(req,res){
   // res.send('WELCOME ' + res.rows.name);
   req.session.save(function(){
     console.log(res.rows);
-    if (res.rows.role===2){
+    if (res.rows.role==='2'){
       res.render('thome', {displayUser: res.rows})
     }
     else {
@@ -35,9 +35,25 @@ users.post('/home', db.loginUser, function(req,res){
   });
 });
 
+users.post('/editgrades', db.studentData, function(req,res){
+  console.log(res.data);
+  // res.send(res.data);
+  res.render('studentData', {displayStudent: res.data});
+})
+
 users.delete('/logout', function(req,res){
   req.session.destroy(function(err){
     res.redirect('/')
   })
 })
 module.exports = users;
+
+//   <% displayStudent[i].forEach(student){ %>
+//     <tr>
+//       <td><%= student.img_url %></td>
+//       <td><%= student.name %></td>
+//       <td><%= student.email %></td>
+//       <td><%= student.class_code %></td>
+//     </tr>
+//     <% } %>
+// <% } %>

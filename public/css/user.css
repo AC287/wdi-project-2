@@ -16,3 +16,7 @@
 .profiledata ul {
   list-style: none;
 }
+table tr td img {
+  height: 75px;
+  width: 75px;
+}
