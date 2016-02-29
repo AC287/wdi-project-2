@@ -3,29 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Log In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   </head>
   <body>
-    <h1>User login</h1>
-    <div class="formcontainer">
-      <!-- <form action="/users/login" method="post" class="formlogin"> -->
-      <form action="/users/home" method="post" class="formlogin">
-        <div>
-          <h3>
-            <label for="email">Email</label><br>
-            <input type="email" name="email" style="font-size: 14pt">
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <label for="password">Password</label><br>
-            <input type="password" name="password" style="font-size: 14pt">
-          </h3>
-        </div>
-        <input type="submit" value="Submit">
-      </form> <br>
-      <form action="/" method="get">
-        <input type="submit" name="back" value="Back">
-      </form>
+    <div class="container">
+      <h1>User login</h1>
+      <div class="formcontainer">
+        <!-- <form action="/users/login" method="post" class="formlogin"> -->
+        <form action="/users/home" method="post" class="formlogin">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="Email" style="font-size: 14pt">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Password" style="font-size: 14pt">
+          <br><input type="submit" value="Submit">
+        </form>
+        <form action="/" method="get">
+          <input type="submit" name="back" value="Back">
+        </form>
+      </div>
     </div>
   </body>
 </html>
