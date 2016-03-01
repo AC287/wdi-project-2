@@ -23,8 +23,8 @@
 ### Proposal#2: Grading Book
 This app is for multiple students, ~~multiple~~ teacher~~s~~, ~~and site admin~~.
 * Anyone can sign up.
-* Only site admin can set user role: teacher or student or admin.
+* ~~Only site admin can set user role: teacher or student or admin.~~ User role is automatically set.
 * Users data will be stored in database.
 * Users can "LINK" their profile image.
-* Students can only view their individual grades but they can change their image link.
-* Teachers can view and edit students' grades in table format.
+* Students can only view their individual profile ~~grades but they can change their image link.~~
+* Teachers can view and edit students' ```information```~~grades~~ in table format.

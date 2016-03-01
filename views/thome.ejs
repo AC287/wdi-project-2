@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="/css/user.css">
+  </head>
+  <body>
+    <div class="container" style="padding:5px">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="logout">
+            <form action="/users/logout?_method=DELETE" method="post">
+              <button>Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="four columns profileimage">
+          <img src="<%= displayUser.img_url %>"/>
+        </div>
+        <div class="eight columns profiledata">
+          <ul>
+            <li><h1><%= displayUser.name %></h1></li>
+            <li><%= displayUser.email %></li>
+            <li>Role: Teacher</li>
+          </ul>
+          <form action="/users/editgrades" method="post">
+            <button>View/Edit Students</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

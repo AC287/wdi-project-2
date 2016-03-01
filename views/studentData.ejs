@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Student Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="/css/user.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="logout">
+            <form action="/users/logout?_method=DELETE" method="post">
+              <button>Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <h1>Student Lists</h1>
+      <div class="row">
+        <div class="twelve columns">
+          <form action="/users/assignment" method="get">
+            <button>Add Assignment</button>
+          </form>
+
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>Image</th>
+          <th>Edit/Delete</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Class</th>
+        </tr>
+        <% for (var i=0; i<(displayStudent.length); i++) { %>
+          <tr>
+            <td><img src="<%= displayStudent[i].img_url %>"></td>
+            <td>
+              <form action="/users/editgrades/<%= displayStudent[i].id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+              </form>
+            </td>
+            <td><%= displayStudent[i].name %></td>
+            <td><%= displayStudent[i].email %></td>
+            <td><%= displayStudent[i].class_code %></td>
+          </tr>
+        <% } %>
+
+      </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/AC287/wdi-project-2#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.15.0",
     "connect-pg-simple": "^3.1.0",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "method-override": "^2.3.5",

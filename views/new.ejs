@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>New user sign up</h1>
+      <form action="/users/welcome" method="post" class="formnewuser">
+      
+      <label for="email">Email </label>
+      <input type="email" name="email" placeholder="Email" style="font-size: 14pt" required>
+
+      <label for="password">Password </label>
+      <input type="password" name="password" placeholder="Password" style="font-size: 14pt" required>
+
+      <label for="name">Name </label>
+      <input type="text" name="name" placeholder="Name" style="font-size: 14pt" required>
+
+      <label for="class_code">Class ID </label>
+      <input type="text" name="class_code" placeholder="Class ID" style="font-size: 14pt" required>
+
+      <label for="img_url">Link to your profile image </label>
+      <input type="text" name="img_url" placeholder="Image URL" style="font-size: 14pt">
+
+      <br><input type="submit" value="Submit"> <br>
+
+      </form>
+      <form action="/" method="get">
+        <input type="submit" name="back" value="Back">
+      </form>
+    </div>
+  </body>
+</html>
