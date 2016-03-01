@@ -38,7 +38,7 @@
           <tr>
             <td><img src="<%= displayStudent[i].img_url %>"></td>
             <td>
-              <form action="/users/editgrades/<%= displayStudent[i].id %>?_method=DELETE" method="POST">
+              <form action="/editgrades/<%= displayStudent[i].id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete">
               </form>
             </td>

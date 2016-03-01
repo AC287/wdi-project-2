@@ -7,23 +7,33 @@
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <div class="welcome">
-      <h1>WELCOME</h1>
-    </div>
     <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="welcome">
+            <h1>WELCOME</h1>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="six columns">
           <div class="newuser">
-            <h1>
+            <form action="/users/new" method="get">
+              <input type="submit" value="Sign Up">
+            </form>
+            <!-- <h1>
               <a href="/users/new">Sign Up</a>
-            </h1>
+            </h1> -->
           </div>
         </div>
         <div class="six columns">
           <div class="login">
-            <h1>
+            <form action="/users/login" method="get">
+              <input type="submit" value="Log In">
+            </form>
+            <!-- <h1>
               <a href="/users/login">Log In</a>
-            </h1>
+            </h1> -->
           </div>
         </div>
       </div>

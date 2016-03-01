@@ -25,9 +25,9 @@ users.post('/home', db.loginUser, function(req,res){
   req.session.user = res.rows;
   // res.send('WELCOME ' + res.rows.name);
   req.session.save(function(){
-    console.log(res.rows);
+    // console.log(res.rows);
     if (res.rows.role==='2'){
-      res.render('thome', {displayUser: res.rows})
+      res.render('thome', {displayUser: res.rows});
     }
     else {
       res.render('shome', {displayUser: res.rows});
@@ -36,24 +36,30 @@ users.post('/home', db.loginUser, function(req,res){
 });
 
 users.post('/editgrades', db.studentData, function(req,res){
-  console.log(res.data);
+  console.log(res);
   // res.send(res.data);
   res.render('studentData', {displayStudent: res.data});
+});
+users.delete('/editgrades/:id',db.deleteStudent, function(req,res){
+  res.redirect('/');
+});
+users.get('/assignment', (req,res)=>{
+  // console.log(req);
+  res.render('addassignment');
+});
+users.post('/addassignment', db.assignmentData, function(req, res){
+  res.render('/editgrades2', {
+    displayStudent: res.data,
+    displayAssignment: res.assignment
+  });
+  // res.send(res.assignment);
 })
 
 users.delete('/logout', function(req,res){
   req.session.destroy(function(err){
-    res.redirect('/')
+    res.redirect('./')
   })
 })
-module.exports = users;
 
-//   <% displayStudent[i].forEach(student){ %>
-//     <tr>
-//       <td><%= student.img_url %></td>
-//       <td><%= student.name %></td>
-//       <td><%= student.email %></td>
-//       <td><%= student.class_code %></td>
-//     </tr>
-//     <% } %>
-// <% } %>
+
+module.exports = users;

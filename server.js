@@ -5,7 +5,23 @@ var app = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var pg = require('pg');
-var config = "postgres://arthurchen:Helloworld01@localhost/gradingbook";
+
+if(!process.env.ENVIRONMENT){
+  require('dotenv').config();
+}
+// var config = "postgres://arthurchen:Helloworld01@localhost/gradingbook";
+if (process.env.ENVIRONMENT === 'production') {
+  var config = process.env.DATABASE_URL;
+} else {
+  var config = {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS
+  };
+};
+
 var session = require('express-session');
 var pgSession = require('connect-pg-simple')(session);
 var path = require('path');
@@ -35,7 +51,11 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(morgan('short'));
+if(process.env.ENVIRONMENT==='development'){
+  app.use(morgan('dev'));
+} else{
+  app.use(morgan('common'));
+}
 
 app.use(methodOverride('_method'))
 
