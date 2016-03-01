@@ -22,4 +22,5 @@ Heroku deployment: https://glacial-lowlands-92714.herokuapp.com/
  * Teacher route can view student lists and can edit/delete.
  * Teacher can add assignments and assignments will assign to users with student role with corresponding class id. ```implementation in process```
  * Student route can only view their own profile.
+ 
 ---
