@@ -13,8 +13,6 @@ CREATE TABLE users (
   img_url VARCHAR(255),
   class_code VARCHAR(255),
   role VARCHAR(255)
-  -- class_id INTEGER REFERENCES class (id),
-  -- role INTEGER REFERENCES role (id)
 );
 
 CREATE TABLE roles (

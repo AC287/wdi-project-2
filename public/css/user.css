@@ -1,17 +1,13 @@
 .datacontainer {
-  /*padding:5px;*/
+
 }
 .profileimage img {
-  /*display: inline-block;
-  float: left;*/
-  /*padding: 5px;*/
-  /*border: 1px solid black;*/
   height: 250px;
   width: 250px;
   display: inline;
 }
 .profiledata {
-  /*border: 1px solid black;*/
+
 }
 .profiledata ul {
   list-style: none;

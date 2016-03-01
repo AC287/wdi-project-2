@@ -1,9 +1,10 @@
 //PROJECT 2
 var pg = require('pg');
+
 if(!process.env.ENVIRONMENT){
   require('dotenv').config();
 }
-// var config = "postgres://arthurchen:Helloworld01@localhost/gradingbook";
+
 if (process.env.ENVIRONMENT === 'production') {
   var config = process.env.DATABASE_URL;
 } else {
@@ -38,7 +39,6 @@ function loginUser(req, res, next) {
         res.status(204).json({success: true, data: 'no content'})
       } else if(bcrypt.compareSync(password, result.rows[0].password_digest)){
         res.rows = result.rows[0];
-        // console.log(res.rows);
         next()
       }
     });
@@ -58,13 +58,9 @@ function createUser(req, res, next) {
   createSecure(req.body.email, req.body.password, saveUser);
 
   function saveUser(email, hash){
-    // console.log(req.body);
-
-    //Assign role:
     var role;
     var roleClass = req.body.class_code;
     roleClass = roleClass.toLowerCase();
-    // console.log(roleClass);
     if(roleClass[roleClass.length-2]==='p' && roleClass[roleClass.length-1]==='t'){
       role = 2; // set as teacher
       roleClass = roleClass.split('');
@@ -74,7 +70,6 @@ function createUser(req, res, next) {
       role = 3; // set as student
     };
 
-    //enter value
     pg.connect(config, function(err, client, done){
       if(err){
         done()
@@ -105,17 +100,14 @@ function studentData(req, res, next) {
         return console.error('Error running query',err);
       }
       res.data = result.rows;
-      // console.log(res.data)
       next();
     });
   });
 };
 
-//Did not work...
 function assignmentData(req,res,next) {
   var assignmentid;
   var eachStudent;
-  // console.log(req.body);
   pg.connect(config, function(err, client, done) {
     if(err) {
       done()
@@ -124,21 +116,16 @@ function assignmentData(req,res,next) {
     };
     client.query('INSERT INTO assignments (name) VALUES ($1) RETURNING id',[req.body.name], function(err, result){
       done();
-      // console.log(result.rows)
       if(err){
         console.log('Error with query', err);
       }
-      // console.log(result.rows.id);
       assignmentid = result.rows[0].id;
       res.assignment = {'id': assignmentid,
                         'name': req.body.name};
-      // console.log(assignmentid);
     })
     //add assignment to each user;
     client.query('SELECT id FROM users where role=$1 and class_code like $2',['3',req.body.class_code], function(err, result) {
-      // console.log(result);
       eachStudent = result.rows;
-      // console.log(eachStudent);
       done();
       if(err) {
         console.error('Error with query', err);
@@ -159,7 +146,6 @@ function assignmentData(req,res,next) {
         console.error('Error with query', err);
       }
       res.data = results.rows;
-      // console.log(res.data);
     })
   })
 }
